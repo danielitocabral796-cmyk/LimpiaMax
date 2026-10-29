@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12302b">
+<meta name="description" content="Liberá espacio en tu cuenta de Google, paso a paso. Gratis y sin acceso a tu cuenta.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>LimpiaMax</title>
+<style>
+:root{color-scheme:light;--bg:#f6f4ef;--sf:#fff;--ink:#12302b;--mu:#5b6f6a;--ln:#e3ded2;--pri:#12302b;--pi:#f6f4ef;--gold:#c49a2c;--gt:#8a6512;--c1:#1f7a6b;--c2:#c49a2c;--c3:#d0603f;--fr:#e9e5da;--ok:#1f7a6b;--wn:#9a6200;--bd:#b83a22;--sh:0 1px 2px rgba(18,48,43,.05),0 10px 28px rgba(18,48,43,.07);
+--serif:"Iowan Old Style","Palatino Linotype",Georgia,"Noto Serif",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0d1a17;--sf:#14251f;--ink:#eef4f1;--mu:#9bb3ac;--ln:#26403a;--pri:#d9b24a;--pi:#1a1405;--gold:#d9b24a;--gt:#d9b24a;--c1:#3fb8a2;--c2:#d9b24a;--c3:#ef7a5e;--fr:#22372f;--ok:#5fd0ba;--wn:#e8b94a;--bd:#ff8f77;--sh:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.25)}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0d1a17;--sf:#14251f;--ink:#eef4f1;--mu:#9bb3ac;--ln:#26403a;--pri:#d9b24a;--pi:#1a1405;--gold:#d9b24a;--gt:#d9b24a;--c1:#3fb8a2;--c2:#d9b24a;--c3:#ef7a5e;--fr:#22372f;--ok:#5fd0ba;--wn:#e8b94a;--bd:#ff8f77}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--sans);-webkit-text-size-adjust:100%}
+main{max-width:660px;margin:0 auto;padding:22px 16px 56px}
+h1,h2{font-family:var(--serif);margin:0;letter-spacing:-.01em}
+.hero{padding:6px 0 4px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;flex:none}.l1{fill:var(--pri)}.l2{fill:none;stroke:var(--pi);stroke-opacity:.35;stroke-width:4}.l3{fill:none;stroke:var(--gold);stroke-width:4;stroke-linecap:round}.l4{fill:none;stroke:var(--pi);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+h1{font-size:2rem;font-weight:700}
+.tag{font-family:var(--serif);font-size:1.3rem;line-height:1.3;margin:18px 0 12px;max-width:26ch}
+.badges{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.badges li{font-size:.82rem;font-weight:600;color:var(--ink);border:1px solid var(--ln);background:var(--sf);border-radius:99px;padding:5px 12px}
+section{margin-top:36px}
+.k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gt);font-weight:700;margin:0 0 4px}
+h2{font-size:1.5rem;font-weight:700}
+.pro{display:inline-block;font:700 .7rem var(--sans);letter-spacing:.04em;background:var(--fr);color:var(--ink);padding:3px 10px;border-radius:99px;margin-left:8px;vertical-align:middle;text-transform:uppercase}
+.sub{color:var(--mu);margin:4px 0 14px;font-size:.95rem}
+.panel{background:var(--sf);border:1px solid var(--ln);border-radius:18px;padding:18px;box-shadow:var(--sh)}
+.sum{font:700 1.6rem var(--serif);margin:0}
+.msg{margin:2px 0 0;font-size:.95rem;color:var(--mu)}.msg.ok{color:var(--ok)}.msg.wn{color:var(--wn)}.msg.bd{color:var(--bd)}
+.bar{display:flex;height:30px;border-radius:99px;overflow:hidden;background:var(--fr);margin:14px 0 10px}
+.bar div{height:100%;transition:width .35s ease}.b1{background:var(--c1)}.b2{background:var(--c2)}.b3{background:var(--c3)}
+.lg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;color:var(--mu);margin-bottom:6px}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+.row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 12px;margin-top:14px}
+.row label{font-weight:600}.row output{color:var(--mu);font-variant-numeric:tabular-nums}
+.row input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--c1);min-height:32px}
+.field{display:flex;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}.field label{font-weight:600}
+input[type=number],select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--ln);border-radius:10px;padding:9px 11px}
+input[type=number]{width:100px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn,a.btn{display:inline-block;border:0;font:700 .92rem var(--sans);background:var(--pri);color:var(--pi);text-decoration:none;padding:10px 18px;border-radius:99px;cursor:pointer;min-height:42px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+button.link{background:none;border:0;color:var(--mu);text-decoration:underline;font:inherit;cursor:pointer;padding:4px 0;min-height:36px}
+.prog{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-weight:600}
+.track{flex:1;height:8px;background:var(--fr);border-radius:99px;overflow:hidden}.fill{height:100%;background:var(--ok);width:0;transition:width .3s}
+ul.t{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.t li{background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:14px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;box-shadow:var(--sh)}
+ul.t input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--ok)}
+ul.t h3{margin:0;font-size:1rem}ul.t li.done h3{text-decoration:line-through;color:var(--mu)}
+ul.t p{margin:2px 0 10px;color:var(--mu);font-size:.9rem}ul.t .btn{grid-column:2;justify-self:start;padding:8px 16px;min-height:38px}
+.tip{font-size:.88rem;color:var(--mu);margin:12px 0 0}
+.hb{width:100%;background:var(--c1);border-radius:6px 6px 0 0;min-height:2px;margin:2px 0}
+.hbars{display:flex;align-items:flex-end;gap:8px;height:120px;margin:12px 0 4px}
+.hbars>div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:.75rem;color:var(--mu);height:100%}
+details{border-top:1px solid var(--ln);padding:10px 0}details:first-child{border-top:0;padding-top:0}
+summary{cursor:pointer;font-weight:600;min-height:32px}details p{margin:8px 0 4px;color:var(--mu);font-size:.92rem}
+.testi{display:grid;gap:10px;margin-top:14px}.testi blockquote{margin:0;padding:10px 14px;border-left:3px solid var(--gold);background:var(--bg);border-radius:8px}
+.testi cite{display:block;color:var(--mu);font-size:.85rem;margin-top:4px}
+.two{display:flex;flex-wrap:wrap;gap:10px}
+footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--ln);font-size:.84rem;color:var(--mu)}
+footer details p{font-size:.85rem}
+@media (prefers-reduced-motion:reduce){.bar div,.fill{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<header class="hero">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><rect class="l1" width="48" height="48" rx="13"/><circle class="l2" cx="24" cy="24" r="12"/><path class="l3" d="M24 12a12 12 0 0 1 10.4 6"/><path class="l4" d="M19 24.5l3.6 3.6L29.5 21"/></svg>
+    <h1>LimpiaMax</h1>
+  </div>
+  <p class="tag">Liberá espacio en tu cuenta de Google, paso a paso.</p>
+  <ul class="badges"><li>Gratis</li><li>Sin acceso a tu cuenta</li><li>Tus datos quedan en tu teléfono</li></ul>
+</header>
+
+<section aria-labelledby="h1a">
+  <p class="k">Paso 1</p><h2 id="h1a">¿Cuánto espacio ocupás?</h2>
+  <p class="sub">Mirá tus números en Google One y cargalos acá.</p>
+  <div class="panel">
+    <p class="sum" id="sum">0 de 15 GB</p><p class="msg" id="msg"></p>
+    <div class="bar" id="bar" role="img" aria-label="Espacio usado"><div class="b1"></div><div class="b2"></div><div class="b3"></div></div>
+    <div class="lg"><span><i style="background:var(--c1)"></i>Gmail</span><span><i style="background:var(--c2)"></i>Drive</span><span><i style="background:var(--c3)"></i>Fotos</span><span><i style="background:var(--fr)"></i>Libre</span></div>
+    <div class="field"><label for="total">Espacio total (GB)</label><input id="total" type="number" inputmode="decimal" min="1" max="30000" step="1" value="15"></div>
+    <div class="row"><label for="r1">Gmail</label><output id="o1"></output><input id="r1" type="range" min="0" step="0.1" value="0"></div>
+    <div class="row"><label for="r2">Drive</label><output id="o2"></output><input id="r2" type="range" min="0" step="0.1" value="0"></div>
+    <div class="row"><label for="r3">Fotos</label><output id="o3"></output><input id="r3" type="range" min="0" step="0.1" value="0"></div>
+    <div class="field"><label for="freed">GB que ya liberaste</label><input id="freed" type="number" inputmode="decimal" min="0" step="0.1" value="0"></div>
+    <p class="msg" id="after"></p>
+  </div>
+</section>
+
+<section aria-labelledby="h2a">
+  <p class="k">Paso 2</p><h2 id="h2a">Limpiezas rápidas</h2>
+  <p class="sub">Cada botón abre Google ya filtrado. Revisá antes de borrar.</p>
+  <div class="prog"><span id="pt">0 de 8</span><div class="track"><div class="fill" id="pf"></div></div></div>
+  <ul class="t" id="list"></ul>
+  <p class="tip">Lo que mandás a la papelera sigue ocupando espacio hasta que la vaciás.</p>
+</section>
+
+<section aria-labelledby="h3a">
+  <p class="k">Seguimiento</p><h2 id="h3a">Mi progreso<span class="pro">Premium · gratis en prueba</span></h2>
+  <p class="sub">Guardá cuánto liberás cada mes y mirá cómo crece.</p>
+  <div class="panel">
+    <p class="sum" id="htot">0 GB liberados</p>
+    <div class="hbars" id="hbars" role="img" aria-label="GB liberados por mes"></div>
+    <p class="msg" id="hmsg"></p>
+    <div class="field"><label for="hin">GB liberados</label><input id="hin" type="number" inputmode="decimal" min="0" step="0.1" value="0"><button class="btn" id="hsave" type="button">Guardar</button><button class="link" id="hundo" type="button">Deshacer último</button></div>
+  </div>
+</section>
+
+<section aria-labelledby="h4a">
+  <p class="k">Constancia</p><h2 id="h4a">Recordatorio mensual<span class="pro">Premium · gratis en prueba</span></h2>
+  <p class="sub">Un evento que se repite cada mes en tu calendario.</p>
+  <div class="panel">
+    <div class="field" style="margin-top:0"><label for="rday">Día del mes</label><select id="rday"></select><a class="btn" id="rlink" target="_blank" rel="noopener noreferrer" href="https://calendar.google.com/">Crear recordatorio</a></div>
+    <p class="tip">Se abre Google Calendar con el evento listo. Si usás otro calendario, creá un evento mensual llamado “Limpieza LimpiaMax”.</p>
+  </div>
+</section>
+
+<section aria-labelledby="h5a">
+  <p class="k">Guías</p><h2 id="h5a">Tu teléfono y otras nubes<span class="pro">Premium · gratis en prueba</span></h2>
+  <p class="sub">Los nombres de los menús pueden variar según tu versión.</p>
+  <div class="panel">
+    <details><summary>Espacio del teléfono (Android)</summary><p>Entrá a Ajustes > Almacenamiento para ver qué ocupa más. La app Files by Google sugiere archivos para borrar. Borrar la caché de una app (Ajustes > Apps > la app > Almacenamiento) es seguro; “borrar datos” cierra tu sesión y elimina su información.</p></details>
+    <details><summary>WhatsApp</summary><p>Ajustes > Almacenamiento y datos > Administrar almacenamiento. Ahí ves los chats que más pesan y los archivos reenviados muchas veces. Revisá antes de borrar.</p></details>
+    <details><summary>iCloud (Apple)</summary><p>En un iPhone: Ajustes > tu nombre > iCloud > Administrar almacenamiento de la cuenta. Podés ver qué apps ocupan más y borrar copias antiguas. El plan gratuito es de 5 GB.</p></details>
+    <details><summary>OneDrive (Microsoft)</summary><p>Entrá a onedrive.live.com, abrí Ajustes y buscá Administrar almacenamiento. Podés ver los archivos más pesados y vaciar la papelera. El plan gratuito suele ser de 5 GB.</p></details>
+  </div>
+</section>
+
+<section aria-labelledby="h6a">
+  <p class="k">Comunidad</p><h2 id="h6a">Opiniones y ayuda</h2>
+  <p class="sub">Calificá la app, proponé mejoras o pedí ayuda. Sin dar tu número ni tu correo.</p>
+  <div class="panel">
+    <div class="two"><button class="btn" id="fbtn" type="button" disabled>Dejar una opinión · próximamente</button><button class="btn" id="hbtn" type="button" disabled>Pedir ayuda · próximamente</button></div>
+    <p class="tip">Vas a poder dejar estrellas, críticas y sugerencias, o consultar dudas, desde un formulario externo y anónimo.</p>
+    <div class="testi" id="testi"><p class="tip" id="tnone">Todavía no hay opiniones publicadas. Cuando las haya, solo verás las que tengan permiso de quien las escribió.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="h7a">
+  <p class="k">Dudas</p><h2 id="h7a">Preguntas frecuentes</h2>
+  <div class="panel" style="margin-top:14px">
+    <details><summary>¿LimpiaMax es gratis?</summary><p>Sí. Hoy todo es gratis. Las funciones marcadas “Premium” están en prueba gratuita y te avisaremos antes de cobrar cualquier cosa.</p></details>
+    <details><summary>¿Es segura? ¿Accede a mi cuenta?</summary><p>No. LimpiaMax no se conecta a tu cuenta de Google, no lee tus correos, archivos ni fotos y no te pide contraseñas. Solo abre páginas de Google donde vos hacés la limpieza.</p></details>
+    <details><summary>¿Por qué Google me pide iniciar sesión?</summary><p>Porque tus correos, archivos y fotos están en tu cuenta de Google. Si ya tenés la sesión abierta en el navegador, entra directo. Poné tu contraseña solo en páginas de Google.</p></details>
+    <details><summary>¿Qué datos guarda la app?</summary><p>Solo en tu dispositivo: los GB que cargás, las limpiezas que marcás y tu historial. Podés borrarlos con el botón del final de la página.</p></details>
+    <details><summary>¿Qué pasa con lo que borro?</summary><p>Depende de cada servicio. Por lo general, Gmail, Drive y Fotos mandan lo borrado a la papelera, donde se conserva un tiempo (suele ser de 30 a 60 días) y sigue ocupando espacio hasta que la vaciás. Revisá antes de borrar y guardá copia de lo importante.</p></details>
+    <details><summary>¿Por qué mis números no coinciden con los de Google?</summary><p>Los 15 GB gratuitos se comparten entre Gmail, Drive y Fotos. Los valores los escribís vos, y Google puede tardar un rato en actualizar tu espacio después de borrar.</p></details>
+    <details><summary>¿Funciona en iPhone y en computadora?</summary><p>Sí. Es una página web y se abre en cualquier navegador. Para tenerla a mano, agregala a la pantalla de inicio desde el menú del navegador.</p></details>
+    <details><summary>¿Está afiliada a Google?</summary><p>No. LimpiaMax es independiente. Google, Gmail, Drive y Fotos son marcas de Google LLC.</p></details>
+    <details><summary>Un botón no filtra o no abre bien</summary><p>Google cambia sus páginas de vez en cuando, y en la app de Gmail del celular los filtros a veces no se aplican. Probá abrirlo desde el navegador, por ejemplo Chrome.</p></details>
+  </div>
+</section>
+
+<section aria-labelledby="h8a">
+  <p class="k">Próximamente</p><h2 id="h8a">LimpiaMax Premium</h2>
+  <p class="sub">Las funciones marcadas “Premium” ya están disponibles gratis durante la prueba.</p>
+  <div class="panel">
+    <details open><summary>Qué incluirá</summary><p>Recordatorio mensual, historial de espacio liberado y guías para otras nubes y para el espacio del teléfono. Precio a definir: no se cobra nada por ahora y te avisamos antes de cobrar. La versión gratis seguirá funcionando.</p></details>
+  </div>
+</section>
+
+<footer>
+  <p>LimpiaMax es una herramienta independiente y no está afiliada a Google. Google, Gmail, Drive y Fotos son marcas de Google LLC.</p>
+  <details><summary>Política de privacidad</summary>
+    <p><strong>Última actualización: 29 de octubre de 2026.</strong></p>
+    <p>LimpiaMax no tiene cuentas, no pide tu correo ni accede a tu cuenta de Google. No recopilamos ni vendemos datos personales.</p>
+    <p>Los números que cargás, las limpiezas que marcás y tu historial mensual se guardan solo en tu navegador, en tu dispositivo. Podés borrarlos con el botón de abajo o limpiando los datos del navegador.</p>
+    <p>Los botones abren páginas de Google (Gmail, Drive, Fotos, Google One, Calendar). Ahí rigen los términos y la privacidad de Google, no los nuestros.</p>
+    <p>La app usa la tipografía de tu dispositivo y no carga recursos de terceros. Solo se conecta con Google cuando vos tocás uno de los botones.</p>
+    <p>La página está alojada en un servicio externo que, como cualquier sitio web, puede registrar datos técnicos de las visitas (por ejemplo, la dirección IP). Ese registro lo gestiona el proveedor de alojamiento y no está bajo nuestro control.</p>
+    <p>Cuando estén disponibles, el formulario de opiniones y el de ayuda serán de un servicio externo y recibirán lo que escribas. No pongas datos personales en ellos.</p>
+    <p>Si en el futuro la app cambia y trata datos tuyos, vamos a actualizar esta política y avisarte antes.</p>
+    <p>Contacto: mediante el formulario de ayuda de esta página, cuando esté disponible.</p>
+  </details>
+  <details><summary>Términos de uso</summary>
+    <p><strong>Última actualización: 29 de octubre de 2026.</strong></p>
+    <p>LimpiaMax es una guía gratuita y se ofrece “tal cual”, sin garantías. No prometemos una cantidad de espacio liberado.</p>
+    <p>Vos decidís qué borrar. Revisá siempre antes de eliminar correos, archivos o fotos, y hacé copia de lo importante. No nos hacemos responsables por contenido borrado por error.</p>
+    <p>LimpiaMax es independiente y no está afiliada, respaldada ni patrocinada por Google. Google, Gmail, Drive, Fotos, Calendar y Google One son marcas de Google LLC.</p>
+    <p>Google puede cambiar sus páginas y enlaces en cualquier momento, y algún botón podría dejar de funcionar como esperás.</p>
+    <p>LimpiaMax está pensada para personas mayores de 18 años. Si sos menor, usala con permiso de un adulto responsable.</p>
+    <p>En la medida que la ley lo permita, no respondemos por daños indirectos ni por pérdida de información derivados del uso de la app o de las páginas de terceros a las que enlaza.</p>
+    <p>Estos términos se rigen por las leyes de Uruguay, sin perjuicio de los derechos que la ley reconoce a los consumidores.</p>
+    <p>Podemos modificar estos términos y la app. Si la usás después de un cambio, aceptás la versión vigente.</p>
+  </details>
+  <button class="link" id="reset" type="button">Borrar mis datos de esta app</button>
+</footer>
+</main>
+<script>
+(function(){
+var K1='limpiamax-v1',K2='limpiamax-hist-v1',FORM_URL='',HELP_URL='',TESTI=[];
+var T=[
+{id:'one',t:'Ver qué ocupa más',d:'Google One te muestra el reparto entre Gmail, Drive y Fotos.',u:'https://one.google.com/storage',b:'Ver reparto'},
+{id:'big',t:'Correos pesados',d:'Mensajes de más de 10 MB, normalmente con adjuntos viejos.',u:'https://mail.google.com/mail/u/0/#search/larger%3A10M',b:'Abrir Gmail filtrado'},
+{id:'promo',t:'Promociones antiguas',d:'Publicidad de más de un año que nadie lee.',u:'https://mail.google.com/mail/u/0/#search/category%3Apromotions+older_than%3A1y',b:'Abrir promociones'},
+{id:'spam',t:'Spam',d:'Revisá y vaciá la carpeta de spam.',u:'https://mail.google.com/mail/u/0/#spam',b:'Abrir spam'},
+{id:'gtrash',t:'Papelera de Gmail',d:'Vaciala para recuperar el espacio de verdad.',u:'https://mail.google.com/mail/u/0/#trash',b:'Abrir papelera'},
+{id:'drive',t:'Archivos pesados de Drive',d:'Ordená por tamaño y borrá lo que ya no uses.',u:'https://drive.google.com/drive/quota',b:'Abrir Drive'},
+{id:'dtrash',t:'Papelera de Drive',d:'Los archivos borrados siguen contando hasta vaciarla.',u:'https://drive.google.com/drive/trash',b:'Abrir papelera'},
+{id:'photos',t:'Fotos y videos',d:'Buscá capturas, fotos repetidas y videos largos que ya no necesites.',u:'https://photos.google.com/',b:'Abrir Fotos'}];
+var S={total:15,g:0,d:0,p:0,freed:0,done:{}},H=[],M=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+function $(i){return document.getElementById(i)}
+function ld(k){try{var r=localStorage.getItem(k);return r?JSON.parse(r):null}catch(e){return null}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function num(v,d){var n=parseFloat(v);return isFinite(n)&&n>=0?n:d}
+function f(n){return (Math.round(n*10)/10).toString().replace('.',',')}
+function p2(x){return ('0'+x).slice(-2)}
+function mk(d){return d.getFullYear()+'-'+p2(d.getMonth()+1)}
+var o=ld(K1);if(o&&typeof o==='object')S=Object.assign(S,o);
+var a=ld(K2);if(Array.isArray(a))H=a.filter(function(x){return x&&typeof x.m==='string'&&isFinite(x.g)});
+var r=[$('r1'),$('r2'),$('r3')],ou=[$('o1'),$('o2'),$('o3')],ks=['g','d','p'];
+function render(){
+  var TT=Math.max(1,S.total);
+  r.forEach(function(el,i){el.max=TT;S[ks[i]]=Math.min(S[ks[i]],TT);el.value=S[ks[i]];ou[i].textContent=f(S[ks[i]])+' GB'});
+  var used=S.g+S.d+S.p,pct=Math.min(100,used/TT*100);
+  $('sum').textContent=f(used)+' de '+f(TT)+' GB ('+Math.round(pct)+'%)';
+  var bs=$('bar').children;ks.forEach(function(k,i){bs[i].style.width=Math.min(100,S[k]/TT*100)+'%'});
+  var m=$('msg');
+  if(!used){m.className='msg';m.textContent='Mové los controles para ver tu situación.'}
+  else if(pct>=100){m.className='msg bd';m.textContent='Cuenta llena: podrías dejar de recibir correos. Limpiá ya.'}
+  else if(pct>=85){m.className='msg bd';m.textContent='Casi llena. Conviene liberar espacio pronto.'}
+  else if(pct>=60){m.className='msg wn';m.textContent='Vas llenando. Una limpieza te da aire.'}
+  else{m.className='msg ok';m.textContent='Tenés espacio de sobra por ahora.'}
+  var left=Math.max(0,used-S.freed),af=$('after');
+  if(S.freed>0){af.className='msg ok';af.textContent='Después de limpiar: '+f(left)+' de '+f(TT)+' GB ('+Math.round(Math.min(100,left/TT*100))+'%).'}else{af.textContent=''}
+  var n=0;T.forEach(function(t){if(S.done[t.id])n++});
+  $('pt').textContent=n+' de '+T.length;$('pf').style.width=(n/T.length*100)+'%';
+}
+function hrender(){
+  var tot=0,by={},now=new Date(),mx=0,list=[],box=$('hbars');
+  H.forEach(function(x){tot+=x.g;by[x.m]=(by[x.m]||0)+x.g});
+  $('htot').textContent=f(tot)+' GB liberados en total';box.innerHTML='';
+  for(var i=5;i>=0;i--){var d=new Date(now.getFullYear(),now.getMonth()-i,1),g=by[mk(d)]||0;list.push({l:M[d.getMonth()],g:g});if(g>mx)mx=g}
+  list.forEach(function(x){var c=document.createElement('div'),v=document.createElement('span'),b=document.createElement('div'),l=document.createElement('span');
+    v.textContent=x.g?f(x.g):'';b.className='hb';b.style.height=(mx?x.g/mx*80:0)+'px';l.textContent=x.l;c.appendChild(v);c.appendChild(b);c.appendChild(l);box.appendChild(c)});
+  $('hmsg').textContent=tot?('Este mes llevás '+f(by[mk(now)]||0)+' GB liberados.'):'Todavía no guardaste nada. Cuando limpies, anotalo acá.';
+}
+var ul=$('list');
+T.forEach(function(t){
+  var li=document.createElement('li'),cb=document.createElement('input'),bx=document.createElement('div'),h=document.createElement('h3'),p=document.createElement('p'),a=document.createElement('a');
+  li.id='li-'+t.id;cb.type='checkbox';cb.id='cb-'+t.id;cb.checked=!!S.done[t.id];cb.setAttribute('aria-label','Marcar hecho: '+t.t);
+  h.textContent=t.t;p.textContent=t.d;bx.appendChild(h);bx.appendChild(p);
+  a.className='btn';a.href=t.u;a.target='_blank';a.rel='noopener noreferrer';a.textContent=t.b;
+  li.appendChild(cb);li.appendChild(bx);li.appendChild(a);if(cb.checked)li.classList.add('done');
+  cb.addEventListener('change',function(){if(cb.checked){S.done[t.id]=true;li.classList.add('done')}else{delete S.done[t.id];li.classList.remove('done')}sv(K1,S);render()});
+  ul.appendChild(li);
+});
+r.forEach(function(el,i){el.addEventListener('input',function(){S[ks[i]]=num(el.value,0);sv(K1,S);render()})});
+$('total').addEventListener('input',function(e){S.total=Math.max(1,num(e.target.value,15));sv(K1,S);render()});
+$('freed').addEventListener('input',function(e){S.freed=num(e.target.value,0);sv(K1,S);render()});
+$('hsave').addEventListener('click',function(){var g=parseFloat($('hin').value);if(!isFinite(g)||g<=0)return;H.push({m:mk(new Date()),g:g});if(H.length>240)H=H.slice(-240);$('hin').value=0;sv(K2,H);hrender()});
+$('hundo').addEventListener('click',function(){H.pop();sv(K2,H);hrender()});
+var sel=$('rday');for(var d=1;d<=28;d++){var op=document.createElement('option');op.value=d;op.textContent=d;sel.appendChild(op)}
+function rl(){
+  var day=parseInt(sel.value,10)||1,n=new Date(),d0=new Date(n.getFullYear(),n.getMonth(),day,10,0);
+  if(d0<=n)d0=new Date(n.getFullYear(),n.getMonth()+1,day,10,0);
+  function s(x){return x.getFullYear()+p2(x.getMonth()+1)+p2(x.getDate())+'T'+p2(x.getHours())+p2(x.getMinutes())+'00'}
+  var e=new Date(d0.getTime()+30*60000);
+  $('rlink').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Limpieza LimpiaMax')+'&details='+encodeURIComponent('Revisá Gmail, Drive y Fotos y liberá espacio.')+'&dates='+s(d0)+'/'+s(e)+'&recur=RRULE:FREQ=MONTHLY';
+}
+sel.addEventListener('change',rl);rl();
+function link(id,url,label){if(!url)return;var b=$(id),x=document.createElement('a');x.className='btn';x.href=url;x.target='_blank';x.rel='noopener noreferrer';x.textContent=label;b.parentNode.replaceChild(x,b)}
+link('fbtn',FORM_URL,'Dejar una opinión');link('hbtn',HELP_URL,'Pedir ayuda');
+if(TESTI.length){$('tnone').style.display='none';TESTI.forEach(function(t){var q=document.createElement('blockquote'),c=document.createElement('cite');q.textContent=t.t;c.textContent=t.n||'';q.appendChild(c);$('testi').appendChild(q)})}
+$('reset').addEventListener('click',function(){
+  try{localStorage.removeItem(K1);localStorage.removeItem(K2)}catch(e){}
+  S={total:15,g:0,d:0,p:0,freed:0,done:{}};H=[];$('total').value=15;$('freed').value=0;
+  T.forEach(function(t){$('cb-'+t.id).checked=false;$('li-'+t.id).classList.remove('done')});render();hrender();
+});
+$('total').value=S.total;$('freed').value=S.freed;render();hrender();
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
+})();
+</script>
+</body>
+</html>
